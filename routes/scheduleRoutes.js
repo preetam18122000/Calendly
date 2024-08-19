@@ -77,10 +77,10 @@ router.put("/update/:scheduleId", isAuthenticated, async (req, res) => {
             { _id: req.params.scheduleId },
             { day, dayStart: scheduleStart, dayEnd: scheduleEnd, eventDuration}
         );
-        res.send(200).json(updateSchedule);
+        res.status(200).json(updateSchedule);
         } catch (error) {
         console.log("Error in update schedule API: ", error);
-        res.send(500).json({ err: error.message });
+        res.status(500).json({ err: error.message });
     }
 })
 
@@ -104,7 +104,7 @@ router.delete("/deleted/:scheduleId", isAuthenticated, async(req, res) => {
         res.status(200).json({ msg: "Schedule deleted"});
     } catch (error) {
         console.log('Error in delete schedule API: ', error);
-        res.send(403).json({ err: error.message});
+        res.status(403).json({ err: error.message});
     }
 })
 
