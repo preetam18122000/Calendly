@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema;
 
 const eventSchema = new mongoose.Schema({
-  menteeEmail: {
+  menteeEmail: { //a visitor who is scheduling the meet
     type: String,
     required: true,
   },
-  mentorID: {
+  mentorID: { //person whose calendar is scheduled-> me
     type: ObjectId,
     ref: "User",
   },
